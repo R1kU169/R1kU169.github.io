@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>山田 理功 | Portfolio</title>
+<meta name="description" content="データサイエンス学部3年・山田理功のポートフォリオ。画像の機械学習、Webアプリ開発、製造データの異常検知など、インターンと個人開発での取り組みを紹介します。">
+<meta property="og:title" content="山田 理功 | Portfolio">
+<meta property="og:description" content="画像の機械学習、Webアプリ開発、製造データの異常検知。インターンと個人開発での取り組み。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23d9480f'/%3E%3Crect x='7' y='17' width='4' height='8' rx='1' fill='%23fff'/%3E%3Crect x='14' y='11' width='4' height='14' rx='1' fill='%23fff'/%3E%3Crect x='21' y='6' width='4' height='19' rx='1' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=7">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="logo" href="#top">Riku Yamada</a>
+    <nav class="nav" aria-label="ページ内リンク">
+      <a href="#projects">制作物</a>
+      <a href="#internships">インターン</a>
+      <a href="#works">その他</a>
+      <a href="#skills">スキル</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== Hero / 自己紹介 ===== -->
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <h1 class="hero__name">山田 理功<span>Riku Yamada</span></h1>
+        <h2 class="hero__h">自己紹介</h2>
+        <p>データサイエンス学部の3年生です。大学で統計や機械学習を学びながら、STUDENT株式会社で長期インターンをしていて、Webアプリの開発やデータ分析に関わっています。2026年の夏は、製造業などの短期インターンに3社参加しました。</p>
+        <p>画像の機械学習も、Webの画面づくりも、製造データの分析も、始めたときは未経験でした。まず小さく作ってみて、分からないところは調べたり人に聞いたりしながら進めています。</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">制作物を見る</a>
+          <a class="btn" href="https://github.com/R1kU169" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+
+      <aside class="profile" aria-label="プロフィール">
+        <dl>
+          <div><dt>所属</dt><dd>データサイエンス学部 3年</dd></div>
+          <div><dt>卒業</dt><dd>2028年3月(予定)</dd></div>
+          <div><dt>インターン</dt><dd>STUDENT株式会社(長期)<br>夏の短期インターン 3社</dd></div>
+          <div><dt>関心</dt><dd>画像の機械学習 / 異常検知 / Webアプリ</dd></div>
+          <div><dt>資格</dt><dd>基本情報技術者 / TOEIC 670点</dd></div>
+          <div><dt>趣味</dt><dd>食べること / バドミントン(中学から)</dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <ul class="facts">
+        <li><b>1</b><span>長期インターン<br>(STUDENT株式会社)</span></li>
+        <li><b>3</b><span>夏の短期インターン<br>(分析・予知保全・地図)</span></li>
+        <li><b>1</b><span>公開中の<br>個人開発アプリ</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__num">01</p>
+        <div>
+          <h2>制作物</h2>
+          <p>力を入れて取り組んだ4つです。</p>
+        </div>
+      </header>
+
+      <!-- Project 1 -->
+      <article class="project">
+        <div class="project__text">
+          <p class="meta"><span class="tag">インターン</span><span>2026</span><span class="meta__role">分析とモデル作りを一人で担当</span></p>
+          <h3>街並みの写真から「幸福度」を推定する画像モデル</h3>
+          <p class="project__summary">自治体の景観や観光の施策を評価するために、街並みの写真から、人が感じる幸福度(1〜10)を推定するモデルを作りました。</p>
+          <ul class="points">
+            <li>対象地域のラベル付きの写真が少なかったので、公開されている街並みの評価データ(日本の写真4,507枚)で先に学習してから、対象地域に移す形にしました。</li>
+            <li>CLIP、GBDT、ViTなど7つのモデルを比べて、どこで精度が伸びるのかを確かめました。</li>
+            <li>ラベルのない写真5,769枚に予測値を仮のラベルとして付け、学習に加えました(半教師あり学習)。これで目標の順位相関0.30に届きました。</li>
+            <li>最初の目標(0.45)はデータのノイズを考えると難しかったので、途中で0.30に見直しました。</li>
+            <li>撮影地点を道路に重ねて、スコアを地図で見られるようにしました。写真を入れるとスコアが出るデモ画面も作りました。</li>
+          </ul>
+          <ul class="chips" aria-label="使った技術">
+            <li>Python</li><li>PyTorch</li><li>CLIP</li><li>ViT</li><li>scikit-learn</li><li>GeoPandas</li><li>Gradio</li>
+          </ul>
+        </div>
+
+        <div class="project__figure">
+          <figure class="panel">
+            <figcaption class="panel__title">モデルごとの順位相関 ρ<span>公開データでの比較・大きいほどよい</span></figcaption>
+            <div class="bars" role="img" aria-label="順位相関の比較。手設計の特徴とGBDTが0.170、CLIPの特徴と手設計の特徴とGBDTが0.276、ViTの微調整が0.272、ViTに半教師あり学習を加えたものが0.300で、目標の0.30に届いた。">
+              <div class="bar bar--axis" aria-hidden="true"><span class="bar__label"></span><span class="bar__track"><em>目標 0.30</em></span><span class="bar__val"></span></div>
+              <div class="bar" style="--v:48.571%" title="手設計の特徴 + GBDT：ρ 0.170"><span class="bar__label">手設計 + GBDT</span><span class="bar__track"><i></i></span><span class="bar__val">0.170</span></div>
+              <div class="bar" style="--v:78.857%" title="CLIP + 手設計 + GBDT：ρ 0.276"><span class="bar__label">CLIP + 手設計 + GBDT</span><span class="bar__track"><i></i></span><span class="bar__val">0.276</span></div>
+              <div class="bar" style="--v:77.714%" title="ViT の微調整：ρ 0.272"><span class="bar__label">ViT の微調整</span><span class="bar__track"><i></i></span><span class="bar__val">0.272</span></div>
+              <div class="bar bar--hi" style="--v:85.714%" title="ViT + 半教師あり：ρ 0.300(目標達成)"><span class="bar__label">ViT + 半教師あり</span><span class="bar__track"><i></i></span><span class="bar__val">0.300</span></div>
+            </div>
+          </figure>
+
+          <ul class="stats">
+            <li><b>4,507枚</b><span>先に学習した公開データの写真</span></li>
+            <li><b>5,769枚</b><span>仮のラベルを付けて足した写真</span></li>
+            <li><b>7</b><span>比べたモデルの数</span></li>
+            <li><b>+0.028</b><span>先に学習したことで、別の地域でのρが上がった</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project">
+        <div class="project__text">
+          <p class="meta"><span class="tag">STUDENT株式会社 長期インターン</span><span>2026 –</span><span class="meta__role">チーム開発・画面側を中心に担当</span></p>
+          <h3>製造現場向けのAIアシスタント(Webアプリ)</h3>
+          <p class="project__summary">保守の記録や作業の履歴を、チャットで探せるWebアプリです。音声での記録やレポートづくりもできます。チームで開発していて、私は主に画面側(フロントエンド)を担当しています。</p>
+          <ul class="points">
+            <li>全部の画面を実際に操作して、使いにくいところを15件洗い出して直しました。直す前と後は写真で残しています。</li>
+            <li>今ある機能を全部書き出してから、設定や管理の画面を整理し直して、デザインの第1案を作りました。</li>
+            <li>録音中だと分かるように、録音中の印・波形・経過時間が出るようにしました。</li>
+            <li>AIで入力内容をチェックする機能の判定部分を作り、テストを122件追加しました。</li>
+            <li>新しい機能のテスト仕様書と報告書を書き、AIモデルごとの出力も比べました。</li>
+          </ul>
+          <ul class="chips" aria-label="使った技術">
+            <li>TypeScript</li><li>React</li><li>Next.js</li><li>Playwright</li><li>Git / GitHub</li>
+          </ul>
+          <p class="note">※TypeScript などは AI を使いながら開発しています(スキル欄を参照)。</p>
+        </div>
+
+        <div class="project__figure">
+          <figure class="panel">
+            <figcaption class="panel__title">アプリの構成と自分の担当<span>チーム開発のうち、色の付いた部分</span></figcaption>
+            <ol class="stack">
+              <li class="stack__layer stack__layer--main"><span class="stack__name">画面(フロントエンド)</span><span class="stack__role">主に担当</span><small>React / Next.js / TypeScript</small></li>
+              <li class="stack__layer stack__layer--part"><span class="stack__name">API・業務ロジック</span><span class="stack__role">一部担当</span><small>AIによる入力チェックの判定部分</small></li>
+              <li class="stack__layer stack__layer--part"><span class="stack__name">AI(LLM)・検索</span><span class="stack__role">テスト・比較</span><small>出力のテスト設計とモデル比較</small></li>
+              <li class="stack__layer"><span class="stack__name">データベース・保存</span><span class="stack__role">チーム</span></li>
+            </ol>
+          </figure>
+          <ul class="stats">
+            <li><b>15件</b><span>操作して見つけた使いにくい箇所</span></li>
+            <li><b>122件</b><span>入力チェック機能に追加したテスト</span></li>
+          </ul>
+          <p class="note">社内の製品なので、画面の写真やコードは載せていません。</p>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project">
+        <div class="project__text">
+          <p class="meta"><span class="tag tag--live">公開中</span><span>2026.07 –</span><span class="meta__role">個人開発・企画から公開まで一人で</span></p>
+          <h3>精進ボード — AtCoderの練習を見える化するWebアプリ</h3>
+          <p class="project__summary">AtCoder(競技プログラミング)で解いた問題を、ヒートマップやグラフで見られるWebアプリです。今の実力に合った「次の一問」をすすめる機能もあります。サークルのメンバーで使っています。</p>
+          <ul class="points">
+            <li>実力の推定には項目反応理論を使い、正解できる見込みが40〜75%の問題をすすめるようにしました。</li>
+            <li>データは外部のAPIから、アクセスの間隔などのルールを守って取得しています。</li>
+            <li>GitHubにpushすると、自動で公開されるようにしています。</li>
+          </ul>
+          <ul class="chips" aria-label="使った技術">
+            <li>TypeScript</li><li>React</li><li>Vite</li><li>項目反応理論</li><li>GitHub Actions</li>
+          </ul>
+          <p class="note">※AI(Claude Code)を使って開発しました。</p>
+          <div class="links">
+            <a class="btn btn--primary" href="https://r1ku169.github.io/shojin-dashboard/" target="_blank" rel="noopener">アプリを開く ↗</a>
+            <a class="btn" href="https://github.com/R1kU169/shojin-dashboard" target="_blank" rel="noopener">ソースコード ↗</a>
+          </div>
+        </div>
+
+        <div class="project__figure">
+          <figure class="shot">
+            <a href="https://r1ku169.github.io/shojin-dashboard/" target="_blank" rel="noopener">
+              <img src="assets/shojin.webp" width="1025" height="680" loading="lazy" alt="精進ボードの個人ページ。解いた問題数などの数字と、次におすすめの問題が表示されている">
+            </a>
+            <figcaption>個人ページ(表示例：AtCoderの公開アカウント)</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project">
+        <div class="project__text">
+          <p class="meta"><span class="tag">Kaggle</span><span>2026.05</span><span class="meta__role">チームで参加・モデルと実験を担当</span></p>
+          <h3>F1のピットインを予測するコンペ(Kaggle)</h3>
+          <p class="project__summary">F1のレース中のデータ(約44万行)から、次のラップでピットに入るかどうかを予測するコンペです。評価はAUCで、3,023チーム中967位でした。</p>
+          <ul class="points">
+            <li>まずLightGBMで1本提出してから、少しずつ改善しました。手元の評価(交差検証)と公開スコアの差が0.001より小さいことを確かめて、手元の評価を信じて実験を進めました。</li>
+            <li>特徴量を足したり、ターゲットエンコーディングを試したりしてもスコアは上がらなかったので、パラメータの調整と、複数のモデルの組み合わせに切り替えました。</li>
+            <li>LightGBM・XGBoost・CatBoostを組み合わせました。CatBoostは単体では一番弱かったものの、カテゴリの扱い方が違うので、組み合わせるとスコアが上がりました。</li>
+            <li>終了後、上位の人の公開解法を読み、データと分け方をそろえて自分でも試しました。作り込んだ特徴量(46個)は、むしろAUCを少し下げていました。学んだことは次のコンペ用のチェックリストにまとめています。</li>
+          </ul>
+          <ul class="chips" aria-label="使った技術">
+            <li>Python</li><li>pandas</li><li>LightGBM</li><li>XGBoost</li><li>CatBoost</li><li>Optuna</li>
+          </ul>
+        </div>
+
+        <div class="project__figure">
+          <figure class="panel">
+            <figcaption class="panel__title">スコア(AUC)の伸び<span>上から順に試したもの・大きいほどよい</span></figcaption>
+            <ol class="stack stack--steps">
+              <li class="stack__layer stack__layer--part"><span class="stack__name">LightGBMで1本目</span><span class="stack__role">0.94659</span></li>
+              <li class="stack__layer stack__layer--part"><span class="stack__name">パラメータ調整</span><span class="stack__role">0.94989</span><small>Optunaと一晩かけた探索</small></li>
+              <li class="stack__layer stack__layer--part"><span class="stack__name">3モデルの組み合わせ</span><span class="stack__role">0.95007</span><small>LightGBM・XGBoost・CatBoost</small></li>
+              <li class="stack__layer stack__layer--main"><span class="stack__name">最終スコア</span><span class="stack__role">0.95056</span><small>順位を決める非公開データでの値</small></li>
+            </ol>
+          </figure>
+          <ul class="stats">
+            <li><b>967位</b><span>3,023チーム中(上位 約32%)</span></li>
+            <li><b>0.001未満</b><span>手元の評価と公開スコアの差</span></li>
+            <li><b>3</b><span>組み合わせたモデルの数</span></li>
+            <li><b>−0.0026</b><span>上位解法の特徴量46個を足したときのAUCの変化(終了後の再実験)</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Internships ===== -->
+  <section class="section section--alt" id="internships">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__num">02</p>
+        <div>
+          <h2>夏のインターン</h2>
+          <p>2026年の夏に参加した短期インターンです。</p>
+        </div>
+      </header>
+
+      <div class="cards">
+        <article class="card">
+          <p class="meta"><span class="tag">製造業</span><span>2026.09</span><span>2週間</span></p>
+          <h3>設備の予知保全(異常検知)</h3>
+          <p>工場の設備のデータから、異常を見つけるテーマに取り組みました。値そのものではなく、日ごとのデータの分布の変化に注目し、その違いを数値にしてから異常度を出しました。目標を達成し、最終日に発表しました。</p>
+          <div class="mini-flow" aria-label="異常度を出す流れ">
+            <span>日ごとの分布</span><i aria-hidden="true">→</i><span>ワッサースタイン距離</span><i aria-hidden="true">→</i><span>Isolation Forest</span><i aria-hidden="true">→</i><span>異常度</span>
+          </div>
+          <svg class="dist" viewBox="0 0 300 70" role="img" aria-label="ふだんの日と変化が出た日の分布を重ねたイメージ図">
+            <path class="dist__a" d="M0 68 C 40 68, 60 10, 95 10 S 150 68, 190 68"/>
+            <path class="dist__b" d="M60 68 C 110 68, 130 22, 165 22 S 230 68, 300 68"/>
+            <line class="dist__base" x1="0" y1="68.5" x2="300" y2="68.5"/>
+          </svg>
+          <p class="dist__legend" aria-hidden="true"><span class="k-a">ふだんの日</span><span class="k-b">変化が出た日(イメージ)</span></p>
+        </article>
+
+        <article class="card">
+          <p class="meta"><span class="tag">製造業</span><span>2026.08 – 09</span><span>5日間</span></p>
+          <h3>実データの分析と企画提案</h3>
+          <p>実際のデータの分析を担当しました。データをグラフにしては社員の方に質問して、現場の課題を整理しました。そのうえで、加工条件を決めるための試し加工を減らすツールを企画し、ブラウザだけで動くデモ画面を作りました。</p>
+          <ul class="chips"><li>データ分析</li><li>可視化</li><li>企画提案</li></ul>
+        </article>
+
+        <article class="card">
+          <p class="meta"><span class="tag">地図</span><span>2026.08</span><span>2日間</span></p>
+          <h3>地図データ制作の効率化</h3>
+          <p>地図データがどう作られているかを学び、画像認識などを使って作業を効率化する案を、個人ワークとグループでの話し合いを通してまとめ、発表しました。</p>
+          <ul class="chips"><li>画像認識</li><li>企画</li><li>グループワーク</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Other works ===== -->
+  <section class="section" id="works">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__num">03</p>
+        <div>
+          <h2>その他の取り組み</h2>
+        </div>
+      </header>
+
+      <div class="rows">
+        <article class="row">
+          <p class="row__kind">STUDENT株式会社<br>長期インターン</p>
+          <div class="row__body">
+            <h3>企業サイトの制作</h3>
+            <p>エンタメ企業のサイト(9ページ)を作りました。公開されている情報の整理、スマホでの見え方、画像素材の権利の確認まで担当しました。</p>
+          </div>
+        </article>
+        <article class="row">
+          <p class="row__kind">STUDENT株式会社<br>長期インターン</p>
+          <div class="row__body">
+            <h3>学生向けサービスの事業企画</h3>
+            <p>学生向けアプリの事業計画づくりに参加し、週ごとの作業計画(WBS)とKPI、マーケティング計画、料金プラン、ポスターやSNS用の広告を作りました。</p>
+          </div>
+        </article>
+        <article class="row">
+          <p class="row__kind">サークル</p>
+          <div class="row__body">
+            <h3>コンテストを知らせるSlackボット</h3>
+            <p>AtCoderのコンテストをSlackで知らせるボットを運用しています。通知が遅れたり止まったりする問題が続いたので、GitHub ActionsからGoogle Apps Scriptに移して直しました。</p>
+          </div>
+        </article>
+        <article class="row">
+          <p class="row__kind">大学</p>
+          <div class="row__body">
+            <h3>授業・ゼミ</h3>
+            <p>統計コンペに向けた論文づくり(地方税と外国人住民)、空間疫学の輪読、QGISでの地図づくり、Rでの因子分析など。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section class="section section--alt" id="skills">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="section__num">04</p>
+        <div>
+          <h2>スキル</h2>
+        </div>
+      </header>
+
+      <div class="skills">
+        <div class="skill">
+          <h3>自分で書けるもの</h3>
+          <ul class="chips"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>PyTorch</li><li>R(統計・多変量解析)</li></ul>
+        </div>
+        <div class="skill">
+          <h3>AIを使って開発したもの</h3>
+          <ul class="chips"><li>TypeScript</li><li>React</li><li>Next.js</li><li>HTML / CSS / JavaScript</li><li>Google Apps Script</li><li>Playwright</li></ul>
+          <p class="skill__note">AI(Claude Code など)に書いてもらいながら作ったもので、コードを読んで少し直せる程度です。</p>
+        </div>
+        <div class="skill">
+          <h3>ツール</h3>
+          <ul class="chips"><li>Git / GitHub</li><li>GitHub Actions</li><li>QGIS</li></ul>
+        </div>
+        <div class="skill">
+          <h3>資格・スコア</h3>
+          <ul class="certs">
+            <li><b>基本情報技術者試験</b><span>合格</span></li>
+            <li><b>TOEIC L&amp;R</b><span>670点</span></li>
+            <li><b>AtCoder</b><span>レート 373(2026年10月時点)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>インターンの内容は、守秘義務の範囲で書いています。STUDENT株式会社以外の企業名や、社内のデータ・画面は載せていません。</p>
+    <p class="footer__copy">© 2026 Riku Yamada</p>
+  </div>
+</footer>
+
+</body>
+</html>
